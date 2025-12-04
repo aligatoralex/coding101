@@ -6,7 +6,7 @@ int main(void) {
     float b;
     char c;
     
-    printf("Podaj liczbe int, float i znak (oddzielone spacjami): ");
+    printf("Podaj liczbę int, float i znak (oddzielone spacjami): ");
     scanf("%d %f %c", &a, &b, &c);
     
     printf("\n=== WYNIKI ===\n");
