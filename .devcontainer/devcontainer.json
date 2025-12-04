@@ -2,15 +2,8 @@
   "name": "C Programming Environment",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
   
-  "features": {
-    "ghcr.io/devcontainers/features/gcc:1": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/common-utils:2": {
-      "installZsh": true,
-      "installOhMyZsh": true
-    }
-  },
+  // Removed GHCR feature references to avoid permission/access errors
+  // Install required packages in `postCreateCommand` instead.
   
   "customizations": {
     "vscode": {
@@ -31,7 +24,7 @@
     }
   },
   
-  "postCreateCommand": "gcc --version && echo '✅ Środowisko C gotowe!'",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y build-essential zsh git curl && gcc --version && echo '✅ Środowisko C gotowe!'",
   
   "remoteUser": "vscode"
 }
