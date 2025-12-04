@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Kompiluj (debug)",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}",
+        "-lm"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Kompilacja z flagami debug i ostrzeżeniami"
+    },
+    {
+      "label": "Kompiluj i uruchom",
+      "type": "shell",
+      "command": "gcc -Wall -Wextra ${file} -o ${fileDirname}/${fileBasenameNoExtension} -lm && ${fileDirname}/${fileBasenameNoExtension}",
+      "group": "build",
+      "problemMatcher": ["$gcc"],
+      "detail": "Kompiluje i natychmiast uruchamia"
+    }
+  ]
+}
