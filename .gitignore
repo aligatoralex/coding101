@@ -3,6 +3,14 @@
 *.out
 a.out
 
+# Executables in wyklad directories (no extension)
+wyklad*/[!.]*/
+wyklad*/[!.]*
+!wyklad*/*.c
+!wyklad*/*.h
+!wyklad*/Makefile
+!wyklad*/README.md
+
 # Pliki obiektowe
 *.o
 *.obj
