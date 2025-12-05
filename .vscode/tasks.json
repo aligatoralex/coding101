@@ -1,33 +1,30 @@
 {
-  "version": "2.0.0",
-  "tasks": [
+  "version": "0.2.0",
+  "configurations": [
     {
-      "label": "Kompiluj (debug)",
-      "type": "shell",
-      "command": "gcc",
-      "args": [
-        "-g",
-        "-Wall",
-        "-Wextra",
-        "${file}",
-        "-o",
-        "${fileDirname}/${fileBasenameNoExtension}",
-        "-lm"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": ["$gcc"],
-      "detail": "Kompilacja z flagami debug i ostrzeżeniami"
-    },
-    {
-      "label": "Kompiluj i uruchom",
-      "type": "shell",
-      "command": "gcc -Wall -Wextra ${file} -o ${fileDirname}/${fileBasenameNoExtension} -lm && ${fileDirname}/${fileBasenameNoExtension}",
-      "group": "build",
-      "problemMatcher": ["$gcc"],
-      "detail": "Kompiluje i natychmiast uruchamia"
+      "name": "C Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "preLaunchTask": "Kompiluj (debug)",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
     }
   ]
 }
